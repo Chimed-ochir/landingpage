@@ -1,15 +1,16 @@
 import { Stack, Box, Text, Button } from "@chakra-ui/react";
 import "@vetixy/circular-std";
-import { useFetchDiscourseData } from "@/app/services/data/fetchDiscourseData";
+// import { useFetchDiscourseData } from "@/app/services/data/fetchDiscourseData";
 export default function Active() {
-  const data = useFetchDiscourseData();
-  console.log("----", data);
+  // const data = useFetchDiscourseData();
+  // console.log("----", data);
   return (
     <Box
       mx={{ base: "auto", "2xl": "60px" }}
       h={"497px"}
       w={"866px"}
       mt={"32px"}
+      mb={"20px"}
     >
       <Box>
         <Box bg={"#282828"} h={"42px"}>

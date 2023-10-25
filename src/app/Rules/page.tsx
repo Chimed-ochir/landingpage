@@ -1,8 +1,15 @@
+"use client";
 import { Stack, Text } from "@chakra-ui/react";
 import SideBar from "../Components/SideBar/page";
-import GetStarted from "../Components/Rules/GetStarted/page";
+import GetStarted from "./GetStarted/page";
+import { useParams } from "next/navigation";
+import FundingAllocation from "./FundingAllocation/page";
 
 export default function Rules() {
+  const { tag } = useParams();
+  const param = useParams();
+  console.log("tag", tag);
+  console.log("param", param);
   return (
     <Stack direction={"row"} mx={{ base: "auto", "2xl": "41px" }}>
       <SideBar />

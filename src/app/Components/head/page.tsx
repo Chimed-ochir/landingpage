@@ -11,23 +11,24 @@ import { AiOutlineDown } from "react-icons/ai";
 import ToggleColorMode from "../toggleColorMode";
 import "@vetixy/circular-std";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useMemo } from "react";
+// import { useRouter } from "next/navigation";
 export default function Headers() {
-  const router = useRouter();
   const pathname = usePathname();
-  const MENU_ITEMS = [
-    { title: "Home", href: "/#", width: "93.55px" },
-    { title: "Rules", href: "/Rules", width: "89.55px" },
-    { title: "Discussions", href: "/discussions", width: "135.55px" },
-    { title: "Voting", href: "/voting", width: "138.55px" },
-    { title: "Buy & Sell", href: "/buy", width: "93.55px" },
-  ];
-  const selected = MENU_ITEMS.findIndex((e) => pathname.includes(e.href));
+  const MENU_ITEMS = useMemo(
+    () => [
+      { title: "Home", href: "/#", width: "93.55px" },
+      { title: "Rules", href: "/Rules", width: "89.55px" },
+      { title: "Discussions", href: "/discussions", width: "135.55px" },
+      { title: "Voting", href: "/voting", width: "138.55px" },
+      // { title: "Buy & Sell", href: "/buy", width: "93.55px" },
+    ],
+    []
+  );
+  const selected = MENU_ITEMS.findIndex(
+    (e) => pathname && e.href && pathname.includes(e.href)
+  );
 
-  console.log("====", router);
-  console.log("-----", pathname);
-
-  console.log("0000", selected);
   return (
     <>
       <Flex
@@ -37,10 +38,8 @@ export default function Headers() {
         bg={"#000"}
         h={"64px"}
         mx={"auto"}
-        zIndex={100}
-        position="sticky"
         top="0"
-        borderBottom={"1px solid #282828"}
+        // borderBottom={"1px solid #282828"}
       >
         <Box p={"10px"} pl="20px" w="256px" ml={"20px"}>
           <Text
@@ -55,7 +54,7 @@ export default function Headers() {
         </Box>
         <Divider color={"#282828"} orientation="vertical" />
         <Box w={"485.7px"}>
-          <Text fontFamily={"CircularStd"} color="b3b3b3">
+          <Text fontFamily={"CircularStd"} color="#b3b3b3">
             Search
           </Text>
         </Box>
@@ -75,13 +74,13 @@ export default function Headers() {
                 borderRight={"1px solid #282828"}
                 alignItems={"center"}
                 justifyContent={"center"}
-                bg={selected === id ? "#282828" : "black"}
+                bg={selected === id ? "#282828" : "dark"}
                 borderRadius={"0"}
-                borderBottom={"1px solid #282828"}
+                // borderBottom={"1px solid #282828"}s
               >
                 <Box h={"24.5px"}>
                   <Text
-                    color="b3b3b3"
+                    color="#b3b3b3"
                     fontFamily={"CircularStd"}
                     lineHeight={"24px"}
                     fontSize={"16px"}
@@ -93,7 +92,7 @@ export default function Headers() {
                 </Box>
                 {data.title === "Buy & Sell" ? (
                   <Box alignSelf={"center"} w={"16px"} h={"16px"}>
-                    <AiOutlineDown color="b3b3b3" />
+                    <AiOutlineDown color="#b3b3b3" />
                   </Box>
                 ) : null}
               </Button>
@@ -103,20 +102,26 @@ export default function Headers() {
           <Stack
             w="77.55px"
             borderRight={"1px solid #282828"}
-            h={"64px"}
+            h={"62px"}
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Box h={"24.5px"} alignSelf={"center"}>
+            <Button
+              h={"64px"}
+              w="77.5px"
+              borderRadius={"0"}
+              bg={"black"}
+              alignSelf={"center"}
+            >
               <Text
-                color="b3b3b3"
+                color="#b3b3b3"
                 fontFamily={"CircularStd"}
                 fontSize={"16px"}
                 textAlign={"center"}
               >
                 MN
               </Text>
-            </Box>
+            </Button>
           </Stack>
 
           <Stack
@@ -124,7 +129,7 @@ export default function Headers() {
             alignSelf={"center"}
             w="66px"
             h={"64px"}
-            borderRight={"1px solid #282828"}
+            // borderRight={"1px solid #282828"}
             justifyContent={"center"}
           >
             {/* <Text color="b3b3b3">M</Text> */}

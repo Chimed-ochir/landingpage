@@ -1,7 +1,14 @@
+"use client";
 import { Box, Button, Divider, Link, Stack, Text } from "@chakra-ui/react";
 import "@vetixy/circular-std";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { FaArrowRight } from "react-icons/fa";
 export default function GetStarted() {
+  const path = usePathname();
+  const router = useRouter();
+  console.log("pathname", path);
   return (
     <Box w={"800px"} h={"2781.39px"}>
       <Stack h={"127px"} justifyContent={"space-between"}>
@@ -18,6 +25,7 @@ export default function GetStarted() {
               fontSize={"48px"}
               lineHeight={"76.8px"}
               letterSpacing={"-0.96 px"}
+              color={"#E0E0E0"}
             >
               Getting started
             </Text>
@@ -45,6 +53,7 @@ export default function GetStarted() {
               fontSize={"15px"}
               lineHeight={"18px"}
               fontFamily={"CircularStd"}
+              color={"#E0E0E0"}
             >
               5 min read
             </Text>
@@ -61,6 +70,7 @@ export default function GetStarted() {
               fontWeight={"450px"}
               fontSize={"15px"}
               lineHeight={"18px"}
+              color={"#E0E0E0"}
             >
               7 months ago
             </Text>
@@ -86,10 +96,10 @@ export default function GetStarted() {
       <Stack
         mx={"auto"}
         w="736px"
-        justifyContent={"space-evenly"}
+        // justifyContent={"space-evenly"}
         h={"2654.39px"}
       >
-        <Box>
+        <Box pt={"63.375px"}>
           <Box w="715px" h={"90px"}>
             <Text
               fontFamily={"CircularStd"}
@@ -105,7 +115,7 @@ export default function GetStarted() {
             </Text>
           </Box>
         </Box>
-        <Stack h={"180px"} justifyContent={"space-between"}>
+        <Stack h={"243.735px"} justifyContent={"space-between"} pt={"63.375px"}>
           <Box h="30px">
             <Text
               fontFamily={"CircularStd"}
@@ -135,9 +145,11 @@ export default function GetStarted() {
         </Stack>
 
         <Stack
-          h={"320px"}
-          id="creating-new-proposal"
+          h={"383.375px"}
+          // id="creating-new-proposal"
           justifyContent={"space-between"}
+          pt={"63.375px"}
+          id="creating-new-proposal"
         >
           <Link href="#creating-new-proposal">
             <Box h="30px">
@@ -187,9 +199,10 @@ export default function GetStarted() {
         </Stack>
 
         <Stack
-          h={"438px"}
+          h={"501.375px"}
           justifyContent={"space-between"}
           id="proposal-categories"
+          pt={"63.375px"}
         >
           <Link href="#proposal-categories">
             <Box h="30px">
@@ -316,9 +329,9 @@ export default function GetStarted() {
                   <Text as="span" fontWeight="700" color={"#E0E0E0"}>
                     Community Wallet:{" "}
                   </Text>{" "}
-                  We pool a certain percentage of income from "The Wolves"
-                  collectibles merch sales into a community shared wallet.
-                  Submit proposals to access these funds for empowering
+                  We pool a certain percentage of income from &#34;The
+                  Wolves&#34; collectibles merch sales into a community shared
+                  wallet. Submit proposals to access these funds for empowering
                   activities and projects within the Wolves community.
                 </Text>
               </Box>
@@ -326,9 +339,10 @@ export default function GetStarted() {
           </Stack>
         </Stack>
         <Stack
-          h={"502px"}
+          h={"565.375px"}
           justifyContent={"space-between"}
           id="proposal-phases"
+          pt={"63.375px"}
         >
           <Link href="#proposal-phases">
             <Box h="30px">
@@ -507,7 +521,12 @@ export default function GetStarted() {
             </Box>
           </Stack>
         </Stack>
-        <Stack h={"471px"} justifyContent={"space-between"} id="voting-process">
+        <Stack
+          h={"534.375px"}
+          justifyContent={"space-between"}
+          id="voting-process"
+          pt={"63.375px"}
+        >
           <Link href="#voting-process">
             <Box h="30px">
               <Text
@@ -540,8 +559,8 @@ export default function GetStarted() {
                 holders can vote based on the amount of coins they hold in their
                 MongolNFT wallet. The voting results are considered valid once
                 the total MNFT coin holdings of voters surpasses the 1 billion
-                mark. Each voter's vote is weighted based on the number of MNFT
-                coins they possess. 
+                mark. Each voter&#39;s vote is weighted based on the number of
+                MNFT coins they possess. 
               </Text>
             </Box>
           </Stack>
@@ -585,7 +604,64 @@ export default function GetStarted() {
             </Box>
           </Stack>
         </Stack>
-        <Stack h="146.39px" w="736px" bg="green"></Stack>
+        <Stack h="273.134px" w="736px" py={"63.375px"}>
+          <Stack
+            h="146.39px"
+            w="736px"
+            justifyContent={"flex-end"}
+            direction={"row"}
+            alignItems={"center"}
+          >
+            <Button
+              h="82.39px"
+              w="360px"
+              color="#121212"
+              borderRadius={"8px"}
+              border="1px solid #292929"
+              onClick={() => {
+                router.push("/Rules/FundingAllocation");
+              }}
+              p="0px"
+            >
+              <Stack
+                justifyContent={"space-evenly"}
+                direction={"row"}
+                alignItems={"center"}
+                w="360px"
+              >
+                <Box h={"50.39px"} w="280px">
+                  <Box>
+                    <Text
+                      fontFamily={"CircularStd"}
+                      fontWeight={"450"}
+                      fontSize={"14px"}
+                      lineHeight={"22.4px"}
+                      color={"#D4D4D4"}
+                      textAlign={"right"}
+                    >
+                      Next
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Text
+                      fontFamily={"CircularStd"}
+                      fontWeight={"500"}
+                      fontSize={"20px"}
+                      lineHeight={"28px"}
+                      color={"#FFFFFF"}
+                      textAlign={"right"}
+                    >
+                      FundingAllocation
+                    </Text>
+                  </Box>
+                </Box>
+                <Box h={"32px"}>
+                  <FaArrowRight color="white" size={32} />
+                </Box>
+              </Stack>
+            </Button>
+          </Stack>
+        </Stack>
       </Stack>
     </Box>
   );

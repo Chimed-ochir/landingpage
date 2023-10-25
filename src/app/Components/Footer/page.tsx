@@ -37,7 +37,7 @@ export default function Footers() {
     },
   ];
   return (
-    <Box mx={"auto"} w={"1037px"} mt={"32px"}>
+    <Box mx={"auto"} w={"1037px"} mt={"32px"} zIndex={101}>
       <Stack
         h={"358px"}
         w={"866px"}
@@ -46,8 +46,12 @@ export default function Footers() {
       >
         <Stack h={"205px"} direction={"row"} justifyContent={"space-around"}>
           {data.map((data, id) => (
-            <Stack key={id} bg={"black"} w={"192px"}>
-              <Box h={"19px"} mb={"5px"}>
+            <Stack key={id} w={id === 3 ? "75px" : "192px"}>
+              <Box
+                h={"19px"}
+                mb={"5px"}
+                // textAlign={id === 3 ? "right" : id === 0 ? "left" : "center"}
+              >
                 <Text
                   fontFamily={"CircularStd"}
                   fontSize={"18px"}
@@ -61,15 +65,20 @@ export default function Footers() {
               </Box>
               {data.dat.map((data, idx) => (
                 <Link href={data.href} key={idx} mb={"10px"}>
-                  <Text
-                    fontFamily={"CircularStd"}
-                    fontSize={"16px"}
-                    fontWeight={"450"}
-                    lineHeight={"22.4px"}
-                    color={"#949494"}
-                  >
-                    {data.title}
-                  </Text>
+                  <Box>
+                    <Text
+                      fontFamily={"CircularStd"}
+                      fontSize={"16px"}
+                      fontWeight={"450"}
+                      lineHeight={"22.4px"}
+                      color={"#949494"}
+                      // textAlign={
+                      //   id === 3 ? "right" : id === 0 ? "left" : "center"
+                      // }
+                    >
+                      {data.title}
+                    </Text>
+                  </Box>
                 </Link>
               ))}
             </Stack>
